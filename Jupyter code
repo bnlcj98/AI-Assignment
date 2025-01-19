@@ -1,4 +1,28 @@
+##Importing necessary libraries
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+##Loading dataset_invade.csv file
+df = pd.read_csv("dataset_invade.csv")
+
+##Inspecting dataset: Viewing first 10 rows
+pd.set_option('display.max_columns', None)
+first_ten_rows = df.head(10)
+first_ten_rows
+
+##Inspecting dataset: Determine data types and missing values
+df_info = df.info()
+df_info
+
+##Inspecting dataset: Summary statistics
+stats = df.describe().transpose()
+stats
+
+##Checking for missing values
+df.isnull().sum()
+
+##One hot encoding for protocol_type, service & flag columns
+df_encoded = pd.get_dummies(df, columns=['protocol_type', 'service', 'flag'])
+df_encoded
