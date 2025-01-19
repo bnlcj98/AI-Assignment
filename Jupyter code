@@ -24,5 +24,6 @@ stats
 df.isnull().sum()
 
 ##One hot encoding for protocol_type, service & flag columns
+##use df_encoded to train and test machine
 df_encoded = pd.get_dummies(df, columns=['protocol_type', 'service', 'flag'])
 df_encoded
